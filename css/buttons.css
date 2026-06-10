@@ -1,0 +1,94 @@
+/**
+ * buttons.css — Shared button styles for primary, secondary, and disabled states.
+ * Primary buttons use the shiny blue glow effect on hover and focus.
+ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  line-height: 1.4;
+}
+
+.btn:disabled,
+.btn--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn--primary {
+  background-color: var(--accent-blue-bright);
+  color: #ffffff;
+  box-shadow: 0 0 0 transparent;
+}
+
+.btn--primary:hover:not(:disabled) {
+  background-color: #388bfd;
+  box-shadow: 0 0 12px var(--accent-blue-glow);
+  text-decoration: none;
+}
+
+.btn--primary:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 2px;
+  box-shadow: 0 0 12px var(--accent-blue-glow);
+}
+
+.btn--secondary {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.btn--secondary:hover:not(:disabled) {
+  background-color: var(--border-color);
+  border-color: var(--text-secondary);
+}
+
+.btn--loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.btn__spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 480px) {
+  .btn {
+    width: 100%;
+  }
+
+  .btn-group {
+    flex-direction: column;
+  }
+}

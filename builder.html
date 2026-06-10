@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitProf — Builder</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/wizard.css">
+  <link rel="stylesheet" href="css/preview.css">
+  <link rel="stylesheet" href="css/feedback.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.1/github-markdown-dark.min.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="site-header__brand">GitProf</a>
+    <a href="https://adev.codes" class="site-header__credit" target="_blank" rel="noopener noreferrer">by ADev</a>
+  </header>
+
+  <main class="page-container page-container--wide">
+    <div class="wizard-header">
+      <p class="wizard-header__label" id="step-label">Step 1 of 2</p>
+      <div class="wizard-header__progress-track">
+        <div class="wizard-header__progress-fill" id="progress-fill" style="width: 50%"></div>
+      </div>
+      <button type="button" class="wizard-reset" id="btn-start-over">Start Over</button>
+    </div>
+
+    <!-- Step 1: GitHub Username -->
+    <section class="wizard-step wizard-step--active" data-step="1">
+      <h2 class="wizard-step__title">Connect Your GitHub</h2>
+      <p class="wizard-step__desc">Enter your GitHub username and we'll fetch your public profile and repositories.</p>
+
+      <div class="form-group">
+        <label for="input-username">GitHub Username</label>
+        <input
+          type="text"
+          id="input-username"
+          class="form-input"
+          placeholder="Enter your GitHub username"
+          autocomplete="off"
+          spellcheck="false"
+        >
+      </div>
+
+      <div class="error-banner" id="error-step1" role="alert"></div>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn--primary" id="btn-step1-next" disabled>Next</button>
+      </div>
+    </section>
+
+    <!-- Step 2: User Details -->
+    <section class="wizard-step" data-step="2">
+      <h2 class="wizard-step__title">Your Details</h2>
+      <p class="wizard-step__desc">Tell us about yourself. We'll combine this with your GitHub data to build your README.</p>
+
+      <div class="form-group">
+        <label for="input-name">Name</label>
+        <input
+          type="text"
+          id="input-name"
+          class="form-input"
+          placeholder="Your full name or display name"
+        >
+      </div>
+
+      <div class="form-group">
+        <label>Taglines</label>
+        <p class="form-hint">Add up to 3 short one-liners (at least 1 required).</p>
+        <div id="taglines-list" class="taglines-list"></div>
+        <button type="button" class="btn-add-tagline" id="btn-add-tagline">+ Add tagline</button>
+      </div>
+
+      <div class="form-group">
+        <label for="input-linkedin">LinkedIn <span class="optional">(optional)</span></label>
+        <input
+          type="url"
+          id="input-linkedin"
+          class="form-input"
+          placeholder="https://www.linkedin.com/in/your-profile"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="input-about">About <span class="optional">(optional)</span></label>
+        <textarea
+          id="input-about"
+          class="form-textarea"
+          placeholder="Tell visitors a bit more about yourself, what you do, what you're working on, etc."
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="input-skills">Skills <span class="optional">(optional)</span></label>
+        <input
+          type="text"
+          id="input-skills"
+          class="form-input"
+          placeholder="List your skills, separated by commas (e.g., Python, React, Figma)"
+        >
+      </div>
+
+      <div class="error-banner" id="error-step2" role="alert"></div>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn--secondary" id="btn-step2-back">Back</button>
+        <button type="button" class="btn btn--primary" id="btn-step2-submit">Enter</button>
+      </div>
+    </section>
+
+    <!-- Preview + Enable -->
+    <section class="results-section" id="results-section">
+      <div class="preview-block" id="preview-block">
+        <h2 class="preview-block__title">Live Preview</h2>
+        <div class="preview-card">
+          <div class="markdown-body" id="preview-content"></div>
+        </div>
+      </div>
+
+      <div class="enable-section" id="enable-section">
+        <h2 class="enable-section__title">Your README is ready</h2>
+        <p class="enable-section__desc">Click Enable to download your README.md and see how to add it to your GitHub profile.</p>
+        <div class="enable-section__action">
+          <button type="button" class="btn btn--primary" id="btn-enable">Enable</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/error-handler.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/github-api.js"></script>
+  <script src="js/wizard.js"></script>
+  <script src="js/template-engine.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <script src="js/preview-renderer.js"></script>
+  <script src="js/download.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/feedback.js"></script>
+</body>
+</html>

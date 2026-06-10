@@ -1,0 +1,71 @@
+/**
+ * layout.css — Shared header, page containers, and layout utilities.
+ * Used across both the landing page and the builder wizard page.
+ */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: var(--header-height);
+  padding: 0 1.5rem;
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.site-header__brand {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.site-header__brand:hover {
+  color: var(--accent-blue);
+  text-decoration: none;
+}
+
+.site-header__credit {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.site-header__credit:hover {
+  color: var(--accent-blue);
+  text-decoration: none;
+}
+
+.page-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+.page-container--wide {
+  max-width: 1100px;
+}
+
+@media (max-width: 480px) {
+  .site-header {
+    padding: 0 1rem;
+    height: 56px;
+  }
+
+  .site-header__brand {
+    font-size: 1.35rem;
+  }
+
+  .site-header__credit {
+    font-size: 0.75rem;
+  }
+
+  .page-container {
+    padding: 1.5rem 1rem 2.5rem;
+  }
+}

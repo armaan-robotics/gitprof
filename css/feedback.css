@@ -1,0 +1,48 @@
+/**
+ * feedback.css — Floating feedback button fixed to the bottom-right corner.
+ */
+
+.feedback-fab {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  background-color: var(--accent-blue-bright);
+  color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.feedback-fab:hover {
+  background-color: #388bfd;
+  box-shadow: 0 0 16px var(--accent-blue-glow);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.feedback-fab:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 3px;
+}
+
+.feedback-fab svg {
+  width: 1.35rem;
+  height: 1.35rem;
+  fill: currentColor;
+}
+
+@media (max-width: 480px) {
+  .feedback-fab {
+    right: 1rem;
+    bottom: 1rem;
+    width: 3rem;
+    height: 3rem;
+  }
+}

@@ -1,0 +1,191 @@
+/**
+ * wizard.css — Multi-step wizard form, progress bar, step panels, and inputs.
+ * Styles the step-based UI on the builder page.
+ */
+
+.wizard-header {
+  margin-bottom: 2rem;
+}
+
+.wizard-header__label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.wizard-header__progress-track {
+  width: 100%;
+  height: 6px;
+  background-color: var(--bg-tertiary);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.wizard-header__progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-blue-bright), var(--accent-blue));
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.wizard-reset {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.wizard-reset:hover {
+  color: var(--accent-blue);
+}
+
+.wizard-step {
+  display: none;
+}
+
+.wizard-step--active {
+  display: block;
+}
+
+.wizard-step__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.wizard-step__desc {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.form-group label .optional {
+  font-weight: 400;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.form-hint {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.taglines-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.tagline-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.tagline-row .form-input {
+  flex: 1;
+}
+
+.btn-remove-tagline {
+  flex-shrink: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--text-secondary);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-remove-tagline:hover {
+  color: var(--error-red);
+  border-color: var(--error-red);
+}
+
+.btn-add-tagline {
+  font-size: 0.9rem;
+  color: var(--accent-blue);
+  background: none;
+  border: 1px dashed var(--border-color);
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  width: 100%;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-add-tagline:hover {
+  border-color: var(--accent-blue);
+  background-color: rgba(88, 166, 255, 0.08);
+}
+
+.btn-add-tagline:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  color: var(--text-primary);
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 3px var(--accent-blue-glow);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--text-secondary);
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.error-banner {
+  display: none;
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background-color: rgba(248, 81, 73, 0.1);
+  border: 1px solid var(--error-red);
+  border-radius: 8px;
+  color: var(--error-red);
+  font-size: 0.9rem;
+}
+
+.error-banner--visible {
+  display: block;
+}
